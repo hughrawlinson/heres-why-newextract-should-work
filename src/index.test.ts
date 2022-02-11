@@ -61,7 +61,7 @@ describe("returning a mapped object based on the keys provided in the first arg"
       let result = mappedType(f);
       result.zcr;
       result.chroma;
-      // @ts-expect-error
+      // @ ts-expect-error
       result.loudness;
     });
   });
