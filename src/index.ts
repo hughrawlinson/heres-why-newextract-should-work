@@ -16,6 +16,20 @@ export function returningArraysOfAnotherType<T extends U | readonly U[], U, V>(
   return n as unknown as CorrectReturnType;
 }
 
+type Signal<U> = U[];
+
+export function returningArraysFor2DArray<
+  T extends Signal<U> | readonly Signal<U>[],
+  U,
+  V
+>(arg: T, n: V): T extends Signal<U>[] ? V[] : V {
+  type CorrectReturnType = T extends Signal<U>[] ? V[] : V;
+  if (Array.isArray(arg)) {
+    return [n] as unknown as CorrectReturnType;
+  }
+  return n as unknown as CorrectReturnType;
+}
+
 const exampleMap = {
   zcr: 1,
   chroma: 1,
